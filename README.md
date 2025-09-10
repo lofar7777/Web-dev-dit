@@ -1,2 +1,3 @@
-# Sigma-web-dev-course
- source code for sigma web dev course
+web-dev
+# learning webdevlopment with my team
+
