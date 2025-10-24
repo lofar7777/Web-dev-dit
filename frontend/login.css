@@ -1,0 +1,53 @@
+/* General page style  */
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7f9fc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Login box containter */
+.login-container{
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+}
+
+/* logo  */
+.logo{
+    width: 100%;
+    
+    margin-bottom: 10px;
+}
+
+/* input fields  */
+input[type="text"] ,
+input[type="password"]{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+/* button */
+button{
+    width: 100%;
+    padding: 12px;
+    background-color: #004aad;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+button:hover{
+    background-color: #003a8a;
+}
