@@ -1,0 +1,131 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(to right, #cde2e8, #7c7ce1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.main {
+  display: flex;
+  flex-direction: row; /* ensures side-by-side layout */
+  border-radius: 20px;
+  background: white;
+  width: 850px; /* enough width for both sides */
+  height: 450px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Left (blue) section */
+.left {
+  flex: 1;
+  background-color: #7ea0f9;
+  border-radius: 0 100px 100px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 2em;
+}
+.left h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.left h3 {
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+/* Register button */
+#buttonR {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#register-button {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 10px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+#register-button:hover {
+  background-color: white;
+  color: #7ea0f9;
+}
+/* Right (login form) section */
+.right {
+  flex: 1;
+  padding: 3em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+    
+.login-heading {
+  text-align: center;
+  font-size: 28px;
+  color: #004aad;
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+.buttonL {
+    display: flex;
+    justify-content: center;
+}
+
+#login-button {
+  background-color: #7ea0f9;
+  color: white;
+  width: 100%;
+  border: none;
+  padding: 10px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s ease;
+}
+
+#login-button:hover {
+  background-color: #5c87e0;
+}
+
+.icons {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.icons a {
+    justify-content: center;
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    width: 40px;
+  color: black;
+  text-decoration: none;
+  margin-right: 15px;
+  font-size: 30px;
+  transition: all 0.3s ease;
+}
+
+.icons a:hover {
+  color: #7ea0f9;
+}
