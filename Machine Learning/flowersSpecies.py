@@ -237,3 +237,46 @@ P-value: 2.3781519365894763e-32
 Result: Relationship exists
 
 --------------------------------------------------------
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+from sklearn.linear_model import LinearRegression
+
+#Sample Data (Hours vs Marks)
+X = np.array([1, 2, 3, 4, 5]).reshape(-1, 1)
+y = np.array([2, 4, 5, 4, 6])
+
+#Create Model
+model = LinearRegression()
+model.fit(X,y)
+
+#Prediction
+y_pred = model.predict(X)
+print(y_pred)
+
+#correct prediction for X = 7
+y_pred_1 = model.predict([[7]])
+
+print("y at X = 7: ", y_pred_1[0])
+
+# Print Equation
+print("slope (m):", model.coef_[0])
+print("Intercept (c): ", model.intercept_)
+
+#Plot
+plt.scatter(X, y, label="Actual Data")
+plt.plot(X, y_pred, label="Regression Line")
+plt.xlabel("Hours Studied")
+plt.ylabel("Marks")
+plt.title("Linear Regression (One Variable)")
+plt.legend()
+plt.show()
+
+--->
+[2.6 3.4 4.2 5.  5.8]
+y at X = 7:  7.4
+slope (m): 0.8000000000000003
+Intercept (c):  1.7999999999999994
+-------------------------------------
