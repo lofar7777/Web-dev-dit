@@ -144,3 +144,96 @@ species
 0                     8     42
 1                    42      8
 2                    33     17
+
+
+----------------------------------------------
+3->
+
+
+import pandas as pd
+from sklearn.datasets import load_iris
+from scipy.stats import chi2_contingency
+
+#Load dataset
+iris = load_iris()
+
+#DataFrame
+data = pd.DataFrame(iris.data, columns = iris.feature_names)
+
+#Add species column
+data["species"] = iris.target
+
+#1. Covariance
+print("\nCovariance Matrix: ")
+print(data.cov())
+
+#2. Correlation
+print("\nCorrelation Matrix: ")
+print(data.corr())
+
+# 3. Chi-square Test(Simple Two-way Table)
+
+# Make a category: Petal Length > 3
+data["petal_cat"] = data["petal length (cm)"] > 3
+
+# Two-way Table
+table = pd.crosstab(data["species"], data["petal_cat"])
+
+print("\n Two-way Table:")
+print(table)
+
+# Chi-square test
+chi2, p, dof, expected = chi2_contingency(table)
+
+print("\nChi-Square Value:", chi2)
+print("P-value:", p)
+
+if p < 0.05:
+    print("Result: Relationship exists")
+else:
+    print("Result: No Relationship")
+
+
+->
+Covariance Matrix: 
+                   sepal length (cm)  sepal width (cm)  petal length (cm)  \
+sepal length (cm)           0.685694         -0.042434           1.274315   
+sepal width (cm)           -0.042434          0.189979          -0.329656   
+petal length (cm)           1.274315         -0.329656           3.116278   
+petal width (cm)            0.516271         -0.121639           1.295609   
+species                     0.530872         -0.152349           1.372483   
+
+                   petal width (cm)   species  
+sepal length (cm)          0.516271  0.530872  
+sepal width (cm)          -0.121639 -0.152349  
+petal length (cm)          1.295609  1.372483  
+petal width (cm)           0.581006  0.597315  
+species                    0.597315  0.671141  
+
+Correlation Matrix: 
+                   sepal length (cm)  sepal width (cm)  petal length (cm)  \
+sepal length (cm)           1.000000         -0.117570           0.871754   
+sepal width (cm)           -0.117570          1.000000          -0.428440   
+petal length (cm)           0.871754         -0.428440           1.000000   
+petal width (cm)            0.817941         -0.366126           0.962865   
+species                     0.782561         -0.426658           0.949035   
+
+                   petal width (cm)   species  
+sepal length (cm)          0.817941  0.782561  
+sepal width (cm)          -0.366126 -0.426658  
+petal length (cm)          0.962865  0.949035  
+petal width (cm)           1.000000  0.956547  
+species                    0.956547  1.000000  
+
+ Two-way Table:
+petal_cat  False  True 
+species                
+0             50      0
+1              1     49
+2              0     50
+
+Chi-Square Value: 145.63279857397504
+P-value: 2.3781519365894763e-32
+Result: Relationship exists
+
+--------------------------------------------------------
